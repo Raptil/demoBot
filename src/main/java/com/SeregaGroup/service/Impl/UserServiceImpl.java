@@ -1,6 +1,8 @@
 package com.SeregaGroup.service.Impl;
 
+import com.SeregaGroup.domain.dto.UserDTO;
 import com.SeregaGroup.domain.entity.User;
+import com.SeregaGroup.domain.mapper.UserMap;
 import com.SeregaGroup.repository.UserRepository;
 import com.SeregaGroup.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,13 +15,21 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserRepository userRepository;
 
+
+
     @Override
-    public User getUser(String id) {
-        return userRepository.findUserByUserId(id);
+    public UserDTO getUser(String id) {
+        return UserMap.toDTO(userRepository.findUserByUserId(id));
     }
 
     @Override
-    public List<User> getAllUsers() {
-        return userRepository.findAll();
+    public List<UserDTO> getAllUsers() {
+        return UserMap.toDTO(userRepository.findAll());
+    }
+
+    @Override
+    public UserDTO addUser(UserDTO userDTO) {
+        userRepository.save(UserMap.toEntity(userDTO));
+        return userDTO;
     }
 }
