@@ -34,4 +34,9 @@ public class UserController {
         userService.addUser(userDTO);
         return userDTO;
     }
+    @PutMapping(value = "/delete")
+    public UserDTO deleteUser(@RequestBody UserDTO userDTO){
+        //logger.info("TEXTXTTXT"+userDTO.getFirstName());
+        return userService.deleteUser(userDTO);
+    }
 }

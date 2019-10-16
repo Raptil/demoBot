@@ -14,4 +14,6 @@ public interface UserService {
     public List<UserDTO> getAllUsers();
 
     public UserDTO addUser(UserDTO userDTO);
+
+    public UserDTO deleteUser(UserDTO userDTO);
 }

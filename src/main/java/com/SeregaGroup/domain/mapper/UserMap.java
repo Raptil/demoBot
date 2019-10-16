@@ -20,6 +20,7 @@ public class UserMap {
         user.setEmail(userDTO.getEmail());
         user.setPassword(userDTO.getPassword());
         user.setLastUpdate(userDTO.getLastUpdate());
+        user.setDeleteFlg(userDTO.getDeleteFlg());
 
 
         return user;
@@ -37,6 +38,7 @@ public class UserMap {
         userDTO.setEmail(user.getEmail());
         userDTO.setPassword(user.getPassword());
         userDTO.setLastUpdate(user.getLastUpdate());
+        userDTO.setDeleteFlg(user.getDeleteFlg());
 
 
         return userDTO;

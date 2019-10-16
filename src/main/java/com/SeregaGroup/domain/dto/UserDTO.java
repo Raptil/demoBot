@@ -20,5 +20,7 @@ public class UserDTO {
 
     private String password;
 
-    public Date lastUpdate;
+    private Date lastUpdate;
+
+    private char deleteFlg;
 }

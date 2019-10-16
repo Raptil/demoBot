@@ -32,4 +32,11 @@ public class UserServiceImpl implements UserService {
         userRepository.save(UserMap.toEntity(userDTO));
         return userDTO;
     }
+
+    @Override
+    public UserDTO deleteUser(UserDTO userDTO) {
+        userDTO.setDeleteFlg('Y');
+        userRepository.save(UserMap.toEntity(userDTO));
+        return userDTO;
+    }
 }

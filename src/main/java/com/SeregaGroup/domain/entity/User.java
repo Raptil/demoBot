@@ -26,9 +26,12 @@ public class User {
     private String password;
     @Column(name = "last_update")
     private Date lastUpdate;
+    @Column(name = "delete_flg")
+    private char deleteFlg;
 
     public User (){
         lastUpdate = new Date();
+        deleteFlg ='N';
     }
 
 }
