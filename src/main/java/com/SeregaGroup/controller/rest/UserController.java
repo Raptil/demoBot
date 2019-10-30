@@ -1,11 +1,14 @@
 package com.SeregaGroup.controller.rest;
 
 import com.SeregaGroup.domain.dto.UserDTO;
-import com.SeregaGroup.domain.entity.User;
 import com.SeregaGroup.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
+import org.springframework.data.web.SortDefault;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -26,6 +29,11 @@ public class UserController {
     @GetMapping (value = "/all")
     public List<UserDTO> getUser(){
         return userService.getAllUsers();
+    }
+
+    @GetMapping (value = "/all1")
+    public List<UserDTO> getUserOrder(Pageable pageable){
+        return userService.getAllOrderUsers(pageable);
     }
 
     @PutMapping(value = "/add")
